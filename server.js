@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
 // Health check endpoint to return health status based on the HEALTH_STATUS environment variable
 app.get('/health', (req, res) => {
-  const isHealthy = process.env.HEALTH_STATUS === 'healthy'; // Use an environment variable to toggle health
+  const isHealthy = process.env.HEALTH_STATUS === 'unhealthy'; // Use an environment variable to toggle health
   if (isHealthy) {
     res.status(200).send('Healthy');
   } else {
