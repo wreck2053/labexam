@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  # Blue Environment
+  labexam_blue:
+    image: labexam-app          # Use the image we built in Step 2
+    container_name: labexam_blue
+    ports:
+      - "8081:80"               # Expose port 80 in the container on 8081 for Blue
+    environment:
+      - ENV=blue                # Environment variable to specify Blue environment
+    restart: always             # Restart policy
+
+  # Green Environment
+  labexam_green:
+    image: labexam-app          # Use the same image for consistency
+    container_name: labexam_green
+    ports:
+      - "8082:80"               # Expose port 80 in the container on 8082 for Green
+    environment:
+      - ENV=green               # Environment variable to specify Green environment
+    restart: always             # Restart policy
